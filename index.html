@@ -1,378 +1,208 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>SBI</title>
-
-
-
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>VisualCryptography</title>
     <script>
         
-      window.onload = function() {
-          
-      };
-      
-      var Go = function()
-      {
-          if(flFile.files && flFile.files[0])
-          {
-              var reader = new FileReader();
-              reader.onload = function(event){
-                  img.src = event.target.result;
-                  DrawPicture();
-                  Password();
-              }
-              reader.readAsDataURL(flFile.files[0]);
-          }
-      }
-      
-      function DrawPicture(){
-  
-          var canvas = document.getElementById("canvas");
-          var cxt    = canvas.getContext("2d");
-          var img    = document.getElementById("img");
-          canvas.height = img.height;
-          canvas.width  = img.width;
-          cxt.drawImage(img, 0, 0);
-      }
-      
-      function Password(){
-      
-          var canvas  = document.getElementById("canvas");
-          var canvas1 = document.getElementById("canvas1");
-          var canvas2 = document.getElementById("canvas2");
-          var canvas3 = document.getElementById("canvas3");
-          canvas1.height = img.height * 2;
-          canvas1.width  = img.width  * 2;
-          canvas2.height = img.height * 2;
-          canvas2.width  = img.width  * 2;
-          canvas3.height = img.height * 2;
-          canvas3.width  = img.width  * 2;
-          var cxt     = canvas.getContext("2d");
-          var cxt1    = canvas1.getContext("2d");
-          var cxt2    = canvas2.getContext("2d");
-          var cxt3    = canvas3.getContext("2d");
-          var imgData = cxt.getImageData(0, 0, canvas.width, canvas.height);
-          var random;
-          var dot;
-          
-          cxt1.fillStyle = "#000000";
-          cxt2.fillStyle = "#000000";
-          cxt3.fillStyle = "#000000";
-          
-          
-          for (var i=0; i<canvas.height; i++)
-          {
-              for (var j=0; j<canvas.width; j++)
-              {
-                  dot = imgData.data[4*(i*canvas.width+j)];
-                  random = Math.floor(Math.random() * 6); 
-                  if(dot.toString() == "0"){ 
-                      switch(random){
-                          case 0:
-                              cxt1.fillRect(j*2  , i*2  , 1, 1);
-                              cxt1.fillRect(j*2+1, i*2+1, 1, 1);
-                              cxt2.fillRect(j*2+1, i*2  , 1, 1);
-                              cxt2.fillRect(j*2  , i*2+1, 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 2, 2);
-                          break;
-                          case 1:
-                              cxt1.fillRect(j*2  , i*2  , 1, 1);
-                              cxt1.fillRect(j*2+1, i*2  , 1, 1);
-                              cxt2.fillRect(j*2  , i*2+1, 1, 1);
-                              cxt2.fillRect(j*2+1, i*2+1, 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 2, 2);
-                          break;
-                          case 2:
-                              cxt1.fillRect(j*2  , i*2  , 1, 1);
-                              cxt1.fillRect(j*2  , i*2+1, 1, 1);
-                              cxt2.fillRect(j*2+1, i*2  , 1, 1);
-                              cxt2.fillRect(j*2+1, i*2+1, 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 2, 2);
-                          break;
-                          case 3:
-                              cxt2.fillRect(j*2  , i*2  , 1, 1);
-                              cxt2.fillRect(j*2  , i*2+1, 1, 1);
-                              cxt1.fillRect(j*2+1, i*2  , 1, 1);
-                              cxt1.fillRect(j*2+1, i*2+1, 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 2, 2);
-                          break;
-                          case 4:
-                              cxt2.fillRect(j*2  , i*2  , 1, 1);
-                              cxt2.fillRect(j*2+1, i*2  , 1, 1);
-                              cxt1.fillRect(j*2  , i*2+1, 1, 1);
-                              cxt1.fillRect(j*2+1, i*2+1, 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 2, 2);
-                          break;
-                          case 5:
-                              cxt2.fillRect(j*2  , i*2  , 1, 1);
-                              cxt2.fillRect(j*2+1, i*2+1, 1, 1);
-                              cxt1.fillRect(j*2+1, i*2  , 1, 1);
-                              cxt1.fillRect(j*2  , i*2+1, 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 2, 2);
-                          break;
-                      }
-                  }
-                  else{
-                      switch(random){
-                          case 0:
-                              cxt1.fillRect(j*2  , i*2  , 1, 1);
-                              cxt1.fillRect(j*2+1, i*2+1, 1, 1);
-                              cxt2.fillRect(j*2  , i*2  , 1, 1);
-                              cxt2.fillRect(j*2+1, i*2+1, 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 1, 1);
-                              cxt3.fillRect(j*2+1, i*2+1, 1, 1);
-                          break;
-                          case 1:
-                              cxt1.fillRect(j*2  , i*2  , 1, 1);
-                              cxt1.fillRect(j*2+1, i*2  , 1, 1);
-                              cxt2.fillRect(j*2  , i*2  , 1, 1);
-                              cxt2.fillRect(j*2+1, i*2  , 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 1, 1);
-                              cxt3.fillRect(j*2+1, i*2  , 1, 1);
-                          break;
-                          case 2:
-                              cxt1.fillRect(j*2  , i*2  , 1, 1);
-                              cxt1.fillRect(j*2  , i*2+1, 1, 1);
-                              cxt2.fillRect(j*2  , i*2  , 1, 1);
-                              cxt2.fillRect(j*2  , i*2+1, 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 1, 1);
-                              cxt3.fillRect(j*2  , i*2+1, 1, 1);
-                          break;
-                          case 3:
-                              cxt2.fillRect(j*2  , i*2  , 1, 1);
-                              cxt2.fillRect(j*2  , i*2+1, 1, 1);
-                              cxt1.fillRect(j*2  , i*2  , 1, 1);
-                              cxt1.fillRect(j*2  , i*2+1, 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 1, 1);
-                              cxt3.fillRect(j*2  , i*2+1, 1, 1);
-                          break;
-                          case 4:
-                              cxt2.fillRect(j*2  , i*2  , 1, 1);
-                              cxt2.fillRect(j*2+1, i*2  , 1, 1);
-                              cxt1.fillRect(j*2  , i*2  , 1, 1);
-                              cxt1.fillRect(j*2+1, i*2  , 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 1, 1);
-                              cxt3.fillRect(j*2+1, i*2  , 1, 1);
-                          break;
-                          case 5:
-                              cxt2.fillRect(j*2  , i*2  , 1, 1);
-                              cxt2.fillRect(j*2+1, i*2+1, 1, 1);
-                              cxt1.fillRect(j*2  , i*2  , 1, 1);
-                              cxt1.fillRect(j*2+1, i*2+1, 1, 1);
-                              cxt3.fillRect(j*2  , i*2  , 1, 1);
-                              cxt3.fillRect(j*2+1, i*2+1, 1, 1);
-                          break;
-                      }
-                  }
-              }
-          }
-      }
-  </script>
+        window.onload = function() {
+            
+        };
+        
+        var Go = function()
+        {
+            if(flFile.files && flFile.files[0])
+            {
+                var reader = new FileReader();
+                reader.onload = function(event){
+                    img.src = event.target.result;
 
+                    DrawPicture();
+                    Password();
 
-
-
+                }
+                reader.readAsDataURL(flFile.files[0]);
+            }
+        }
+        
+        function DrawPicture(){
     
+            var canvas = document.getElementById("canvas");
+            var cxt    = canvas.getContext("2d");
+            var img    = document.getElementById("img");
+            canvas.height = img.height;
+            canvas.width  = img.width;
+            cxt.drawImage(img, 0, 0);
+        }
+        
+        function Password(){
+        
+            var canvas  = document.getElementById("canvas");
+            var canvas1 = document.getElementById("canvas1");
+            var canvas2 = document.getElementById("canvas2");
+            var canvas3 = document.getElementById("canvas3");
+            canvas1.height = img.height * 2;
+            canvas1.width  = img.width  * 2;
+            canvas2.height = img.height * 2;
+            canvas2.width  = img.width  * 2;
+            canvas3.height = img.height * 2;
+            canvas3.width  = img.width  * 2;
+            var cxt     = canvas.getContext("2d");
+            var cxt1    = canvas1.getContext("2d");
+            var cxt2    = canvas2.getContext("2d");
+            var cxt3    = canvas3.getContext("2d");
+            var imgData = cxt.getImageData(0, 0, canvas.width, canvas.height);
+            var random;
+            var dot;
+            
+            cxt1.fillStyle = "#000000";
+            cxt2.fillStyle = "#000000";
+            cxt3.fillStyle = "#000000";
+            
+            
+            for (var i=0; i<canvas.height; i++)
+            {
+                for (var j=0; j<canvas.width; j++)
+                {
+                    dot = imgData.data[4*(i*canvas.width+j)];
+                    random = Math.floor(Math.random() * 6); 
+                    if(dot.toString() == "0"){ 
+                        switch(random){
+                            case 0:
+                                cxt1.fillRect(j*2  , i*2  , 1, 1);
+                                cxt1.fillRect(j*2+1, i*2+1, 1, 1);
+                                cxt2.fillRect(j*2+1, i*2  , 1, 1);
+                                cxt2.fillRect(j*2  , i*2+1, 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 2, 2);
+                            break;
+                            case 1:
+                                cxt1.fillRect(j*2  , i*2  , 1, 1);
+                                cxt1.fillRect(j*2+1, i*2  , 1, 1);
+                                cxt2.fillRect(j*2  , i*2+1, 1, 1);
+                                cxt2.fillRect(j*2+1, i*2+1, 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 2, 2);
+                            break;
+                            case 2:
+                                cxt1.fillRect(j*2  , i*2  , 1, 1);
+                                cxt1.fillRect(j*2  , i*2+1, 1, 1);
+                                cxt2.fillRect(j*2+1, i*2  , 1, 1);
+                                cxt2.fillRect(j*2+1, i*2+1, 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 2, 2);
+                            break;
+                            case 3:
+                                cxt2.fillRect(j*2  , i*2  , 1, 1);
+                                cxt2.fillRect(j*2  , i*2+1, 1, 1);
+                                cxt1.fillRect(j*2+1, i*2  , 1, 1);
+                                cxt1.fillRect(j*2+1, i*2+1, 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 2, 2);
+                            break;
+                            case 4:
+                                cxt2.fillRect(j*2  , i*2  , 1, 1);
+                                cxt2.fillRect(j*2+1, i*2  , 1, 1);
+                                cxt1.fillRect(j*2  , i*2+1, 1, 1);
+                                cxt1.fillRect(j*2+1, i*2+1, 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 2, 2);
+                            break;
+                            case 5:
+                                cxt2.fillRect(j*2  , i*2  , 1, 1);
+                                cxt2.fillRect(j*2+1, i*2+1, 1, 1);
+                                cxt1.fillRect(j*2+1, i*2  , 1, 1);
+                                cxt1.fillRect(j*2  , i*2+1, 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 2, 2);
+                            break;
+                        }
+                    }
+                    else{
+                        switch(random){
+                            case 0:
+                                cxt1.fillRect(j*2  , i*2  , 1, 1);
+                                cxt1.fillRect(j*2+1, i*2+1, 1, 1);
+                                cxt2.fillRect(j*2  , i*2  , 1, 1);
+                                cxt2.fillRect(j*2+1, i*2+1, 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 1, 1);
+                                cxt3.fillRect(j*2+1, i*2+1, 1, 1);
+                            break;
+                            case 1:
+                                cxt1.fillRect(j*2  , i*2  , 1, 1);
+                                cxt1.fillRect(j*2+1, i*2  , 1, 1);
+                                cxt2.fillRect(j*2  , i*2  , 1, 1);
+                                cxt2.fillRect(j*2+1, i*2  , 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 1, 1);
+                                cxt3.fillRect(j*2+1, i*2  , 1, 1);
+                            break;
+                            case 2:
+                                cxt1.fillRect(j*2  , i*2  , 1, 1);
+                                cxt1.fillRect(j*2  , i*2+1, 1, 1);
+                                cxt2.fillRect(j*2  , i*2  , 1, 1);
+                                cxt2.fillRect(j*2  , i*2+1, 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 1, 1);
+                                cxt3.fillRect(j*2  , i*2+1, 1, 1);
+                            break;
+                            case 3:
+                                cxt2.fillRect(j*2  , i*2  , 1, 1);
+                                cxt2.fillRect(j*2  , i*2+1, 1, 1);
+                                cxt1.fillRect(j*2  , i*2  , 1, 1);
+                                cxt1.fillRect(j*2  , i*2+1, 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 1, 1);
+                                cxt3.fillRect(j*2  , i*2+1, 1, 1);
+                            break;
+                            case 4:
+                                cxt2.fillRect(j*2  , i*2  , 1, 1);
+                                cxt2.fillRect(j*2+1, i*2  , 1, 1);
+                                cxt1.fillRect(j*2  , i*2  , 1, 1);
+                                cxt1.fillRect(j*2+1, i*2  , 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 1, 1);
+                                cxt3.fillRect(j*2+1, i*2  , 1, 1);
+                            break;
+                            case 5:
+                                cxt2.fillRect(j*2  , i*2  , 1, 1);
+                                cxt2.fillRect(j*2+1, i*2+1, 1, 1);
+                                cxt1.fillRect(j*2  , i*2  , 1, 1);
+                                cxt1.fillRect(j*2+1, i*2+1, 1, 1);
+                                cxt3.fillRect(j*2  , i*2  , 1, 1);
+                                cxt3.fillRect(j*2+1, i*2+1, 1, 1);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-    .red{
-      background-color: brown;
-    }
-    .green{
-background-color: green;
-    }
-        #banner {
-            margin-bottom: 20px;
-        }
-        #banner img {
-            height: 450px;
-        }
-        .logo{
-          height: 40px;
-        }
-        form {
-            width: 400px;
-           padding: 0% 2%;
-        }
-        #banner2 img {
-            height: 3px;
-        }
-        fieldset{
-            padding: 3% 35%;; 
-        }
-      
-        .a img,canvas{
+     .a img,canvas{
          width: 300px;
-                 max-height: 1000px;
+              max-height: 1000px;
           }
-     .c{
-       padding: 1% 8%;
-     }
+    
     </style>
-
-
-  </head>
-
-<body class="">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-    <a class="navbar-brand" href="https://abhishekgupta0514.github.io/SBI/"><img class="logo" src="https://vignette.wikia.nocookie.net/logopedia/images/9/96/SBI_logo2017.png/revision/latest?cb=20170406075229" alt=" sbi logo "> </a>
-    <button class=" nav navbar-toggler btn btn-primary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon  "></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link text-primary font-weight-bold" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active ">
-          <a class="nav-link text-primary font-weight-bold" href="#">Shopping </a>
-        </li>
-        <li class="nav-item active ">
-            <a class="nav-link text-primary font-weight-bold" href="#">Apply</a>
-          </li>
-          
-        <li class="nav-item dropdown active ">
-          <a class="nav-link dropdown-toggle text-primary font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Online Banking
-          </a>
-          <div class="dropdown-menu font-weight-bold" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item font-weight-bold" href="#">Apply</a>
-            <a class="dropdown-item font-weight-bold" href="#">Transfer</a>
-            <a class="dropdown-item font-weight-bold" href="#">Bill Pay</a>
-          </div>
-        </li>
-        <li class="nav-item active  ">
-          <a class="nav-link text-primary font-weight-bold" href="#">More</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0 mr-auto">
-        <input class="form-control mr-sm-2 text-italic" type="search" placeholder="Search ..." aria-label="Search">
-        <button class="btn btn-outline-primary font-weight-bold my-2 my-sm-0" type="submit">Search</button>
-      </form>
-      <!-- Button trigger modal -->
-      <div>
-        <button type="button" class="btn btn-primary font-weight-bold" data-toggle="modal" data-target="#exampleModal">
-            Login
-        </button>
-        <a href="http://abhishekgupta0514.github.io/sbisignup/">
-        <button type="button" class="btn btn-primary font-weight-bold">
-            Sign up
-        </button>
-      </a>
-    </div>
-    </div>
-  </nav>
- 
-  <!-- Modal -->
- 
-  <div id="banner2">
-     
-        <img class="d-block w-100" src="http://jewel925.com/wp-content/uploads/egmJGII.jpg" alt="Third slide">
-      
-</div>
-<fieldset> 
-<h2>Enter Your Details : </h2>
-<br>
-<form>
-        <div class="form-group">
-          <h5>First Name</h5>
-          <input type="text" class="form-control"  placeholder="Enter First name">
-        </div>
-        <div class="form-group">
-                <h5>Last Name</h5>
-                <input type="text" class="form-control"  placeholder="Enter Last Name">
-        </div>
-        <div class="form-group">
-                <h5>User ID </h5>
-                <input type="text" class="form-control"  placeholder="Enter User ID">
-        </div>
-        <div class="form-group">
-                <h5>Phone Number</h5>
-                <input type="text" class="form-control"  placeholder="Enter Phone ">
-        </div>
-
-        <div class="form-group">
-                <h5>Email address</h5>
-                <input type="email" class="form-control" placeholder="Enter Email">
-        </div>
-        <div class="form-group">  
-          <h5>Password</h5>
-          <input type="password" class="form-control"  placeholder="Password">
-        </div>
-        <div class="form-group">  
-                <h5> Confirm Password</h5>
-                <input type="password" class="form-control" placeholder="Confirm Password">
-        </div>
-        <div class="">
-                <div class="input-group mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text font-weight-bold">Upload Your Image : </span>
-                  </div>
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input " id="flFile" onchange="Go()">
-                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label> 
-                  </div>
-                </div>
-        </div>
-                      <small id="emailHelp" class="form-text text-muted">* All fileds are mandatory.</small>
-      </form>
-
-    </fieldset>
-
-<div class="c">
-  <div class="a">      
+</head>
+<body >
+     <div class="a">   
     <div>
-       <h5>Your Image: </h5>
-       <br><img src="" id="img"><br>
+        <input type="file" id="flFile" onchange="Go()"><br>
     </div>
 
-    <canvas id="canvas" style="display:none"></canvas>          
+
     <div>
-      <h5>Your Share 1: </h5>
-      <br><canvas id="canvas1"></canvas><br>
+        [ image ]<br><img src="" id="img"><br>
     </div>
 
-    <div >             
-     <h5>Server Share 2: </h5>
-     <br><canvas id="canvas2"></canvas><br>
+
+    <canvas id="canvas" style="display:none;"></canvas>
+    <div>
+        [ Synthesied effect ]<br><canvas id="canvas3"></canvas><br><br>
     </div>
-  </div>
-          <div class="b">
-            <button type="submit" class="btn btn-primary"  data-toggle="modal" data-target="#e">Submit</button>
-
-            <!-- Modal -->
-        <div class="modal fade" id="e" tabindex="-1" role="dialog" aria-labelledby="eModalL" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h6 class="modal-title" id="eModalL">YOR ARE SUCCESSFULLY REGISTERED!!
-                       <br><hr>
-                       Your Share is sent to your Email.
-                    </h6>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-        </div>        
-        </div> 
-</div>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+    <div>
+        [ picturte 1 ]<br><canvas id="canvas1"></canvas><br>
+    </div>
 
+
+    <div >
+        [ picture2 ]<br><canvas id="canvas2"></canvas><br>
+    </div>
+</div>     
+</body>
 </html>
-
-
-
