@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    </script> -->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -265,7 +265,7 @@ background-color: green;
         <button type="button" class="btn btn-primary font-weight-bold" data-toggle="modal" data-target="#exampleModal">
             Login
         </button>
-        <a href="http://abhishekgupta0514.github.io/sbisignup/">
+        <a href="signup2.html">
         <button type="button" class="btn btn-primary font-weight-bold">
             Sign up
         </button>
@@ -284,18 +284,18 @@ background-color: green;
 <fieldset> 
 <h2>Enter Your Details : </h2>
 <br>
-<form>
+<form  method="POST">
         <div class="form-group">
           <h5>First Name</h5>
-          <input type="text" class="form-control"  placeholder="Enter First name">
+          <input type="text" class="form-control"  placeholder="Enter First name" id="inputname">
         </div>
         <div class="form-group">
                 <h5>Last Name</h5>
-                <input type="text" class="form-control"  placeholder="Enter Last Name">
+                <input type="text" class="form-control"  placeholder="Enter Last Name" id=" ">
         </div>
         <div class="form-group">
                 <h5>User ID </h5>
-                <input type="text" class="form-control"  placeholder="Enter User ID">
+                <input type="text" class="form-control"  placeholder="Enter User ID" id="inputuid">
         </div>
         <div class="form-group">
                 <h5>Phone Number</h5>
@@ -304,7 +304,7 @@ background-color: green;
 
         <div class="form-group">
                 <h5>Email address</h5>
-                <input type="email" class="form-control" placeholder="Enter Email">
+                <input type="email" class="form-control" placeholder="Enter Email" name="_replyto" id="inputemail">
         </div>
         <div class="form-group">  
           <h5>Password</h5>
@@ -320,13 +320,14 @@ background-color: green;
                     <span class="input-group-text font-weight-bold">Upload Your Image : </span>
                   </div>
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input " id="flFile" onchange="Go()">
+                    <input type="file" class="custom-file-input " id="flFile" onchange="Go()" id="inputimg">
                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label> 
                   </div>
                 </div>
         </div>
                       <small id="emailHelp" class="form-text text-muted">* All fileds are mandatory.</small>
-      </form>
+                 
+                    </a>
 
     </fieldset>
 
@@ -349,33 +350,15 @@ background-color: green;
      <canvas id="canvas2"></canvas><br>
     </div>
     <div>
-       <h5> Synthesied Effec: </h5>
+       <h5> Synthesied Effect: </h5>
       <canvas id="canvas3"></canvas><br>
     </div>
   </div>
-          <div class="b">
-            <button type="submit" class="btn btn-primary"  data-toggle="modal" data-target="#e">Submit</button>
 
-            <!-- Modal -->
-        <div class="modal fade" id="e" tabindex="-1" role="dialog" aria-labelledby="eModalL" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h6 class="modal-title" id="eModalL">YOR ARE SUCCESSFULLY REGISTERED!!
-                       <br><hr>
-                       Your Share has been successfully saved.
-                       <div class="checkbox">
-                             <label><input type="checkbox" value="">Remember my share</label>
-                        </div>
-                    </h6>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-        </div>        
-        </div> 
+</form>
+    
+<a href="https://abhishekgupta0514.github.io/sbliemailconfirmation/.">
+  <button type="submit" class="btn btn-primary" value="Send" >Submit</button>
 </div>
 
 
@@ -385,6 +368,3 @@ background-color: green;
   </body>
 
 </html>
-
-
-
